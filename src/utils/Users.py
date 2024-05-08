@@ -7,11 +7,11 @@ class Users:
 
     @classmethod
     def register(cls, email, password):
-        if '@' in cls.users[email]:
+        if cls.is_valid_email(email):
+            cls.users[email] = {'email': email, 'password': password}
             print('User registered successfully!')
         else:
             print('This email is not valid!')
-        cls.users[email] = {'email': email, 'password': password}
         print('-' * 10)
 
     @classmethod
@@ -22,3 +22,7 @@ class Users:
             return print('Login successful!')
         else:
             return print('Login failed')
+
+    @staticmethod
+    def is_valid_email(email):
+        return '@' in email
