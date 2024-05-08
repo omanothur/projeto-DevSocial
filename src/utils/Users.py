@@ -7,7 +7,10 @@ class Users:
 
     @classmethod
     def register(cls, email, password):
-        print('User registered successfully!')
+        if '@' in cls.users[email]:
+            print('User registered successfully!')
+        else:
+            print('This email is not valid!')
         cls.users[email] = {'email': email, 'password': password}
         print('-' * 10)
 
