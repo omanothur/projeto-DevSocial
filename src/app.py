@@ -1,6 +1,7 @@
 from src.utils.Users import Users
 
 email = input('Email: ')
+
 password = input('Password: ')
 
 user = Users(email, password)
