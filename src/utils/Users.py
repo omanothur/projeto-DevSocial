@@ -6,9 +6,11 @@ class Users:
         self.password = password
 
     @classmethod
-    def register(cls, email, password):
-        if cls.is_valid_email(email):
-            cls.users[email] = {'email': email, 'password': password}
+    def register(cls):
+        email_register = input('Email: ')
+        if cls.is_valid_email(email_register):
+            password_register = input('Password: ')
+            cls.users[email_register] = {'email': email_register, 'password': password_register}
             print('User registered successfully!')
         else:
             print('This email is not valid!')

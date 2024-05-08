@@ -1,13 +1,12 @@
 from src.utils.Users import Users
 
-email = input('Email: ')
+if __name__ == "__main__":
+    email = ''
+    password = ''
+    user = Users(email, password)
 
-password = input('Password: ')
+    user.register()
 
-user = Users(email, password)
+    user.login(email, password)
 
-Users.register(email, password)
-
-Users.login(email, password)
-
-print(vars(user))
+    print(vars(user))
