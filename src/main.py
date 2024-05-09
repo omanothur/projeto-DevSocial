@@ -10,6 +10,6 @@ if __name__ == "__main__":
 
     user.login(email, password)
 
-    chat_user = Chat(email='chat@example.com', password='securepassword')
-    Users.register(chat_user.email, chat_user.password)
-    chat_user.send_message("Olá, mundo!")
+    # chat_user = Chat(email='chat@example.com', password='securepassword')
+    # Users.register(chat_user.email, chat_user.password)
+    # chat_user.send_message("Olá, mundo!")
