@@ -14,8 +14,8 @@ if __name__ == "__main__":
             print('-' * 10)
             resposta = int(input())
             if resposta == 1:
-                email = input('Email: ')
-                password = input('Password: ')
+                email = input('Register email: ')
+                password = input('Register password : ')
                 user = Users(email, password)
                 user.register(email, password)
 
@@ -26,11 +26,10 @@ if __name__ == "__main__":
                 except UnboundLocalError as e:
                     print(f'{e}\nLoginError: You need to have a registration before logging in')
 
-
             elif resposta == 3:
                 print('Thank tou for the company, come back often!')
                 break
-            sleep(4)
+            sleep(2.5)
     menu()
 
     # chat_user = Chat(email='chat@example.com', password='securepassword')
