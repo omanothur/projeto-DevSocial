@@ -10,10 +10,11 @@ class Users:  # Criação da classe
     def register(cls, email_register, password_register):  # Método para fazer o registro do usuário!
 
         if cls.is_valid_email(email_register):
-            cls.users[email_register] = {'email': email_register, 'password': password_register}
-            print('User registered successfully!')
-        else:
-            print('This email or password is not valid!\nTry a valid email or a larger password...')
+            if cls.is_valid_password(password_register):
+                cls.users[email_register] = {'email': email_register, 'password': password_register}
+                print('User registered successfully!')
+            else:
+                print('This email or password is not valid!\nTry a valid email or a larger password...')
         print('-' * 10)
 
     @classmethod
