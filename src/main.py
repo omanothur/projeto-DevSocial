@@ -1,12 +1,32 @@
 from src.utils.Users import Users
+from time import sleep
+import os
 
 if __name__ == "__main__":
-    email = input('Email: ')
-    password = input('Password: ')
-    user = Users(email, password)
+    def menu():
+        while True:
+            print("\nOpções:" +
+                  "\n1. Cadastro" +
+                  "\n2. Fazer login" +
+                  "\n3. Sair")
+            print('-' * 10)
+            resposta = int(input())
+            if resposta == 1:
+                email = input('Email: ')
+                password = input('Password: ')
+                user = Users(email, password)
+                user.register(email, password)
 
-    user.register(email, password)
+            elif resposta == 2:
+                try:
+                    user = Users(email, password)
+                    user.login(email, password)
+                except UnboundLocalError as e:
+                    print(f'{e}\nLoginError: You need to have a registration before logging in')
 
-    user.login(email, password)
-
+            elif resposta == 3:
+                print('Thank tou for the company, come back often!')
+                break
+            sleep(4)
+    menu()
 
