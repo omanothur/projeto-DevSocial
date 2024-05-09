@@ -1,8 +1,7 @@
-
 from time import sleep
-import os
 from src.models.chat import Chat
 from src.models.users import Users
+import os
 
 
 if __name__ == "__main__":
@@ -33,7 +32,6 @@ if __name__ == "__main__":
                 break
             sleep(4)
     menu()
-
 
     # chat_user = Chat(email='chat@example.com', password='securepassword')
     # Users.register(chat_user.email, chat_user.password)
