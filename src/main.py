@@ -1,4 +1,4 @@
-from src.models.Users import Users
+from src.models.users import Users
 
 if __name__ == "__main__":
     email = input('Email: ')

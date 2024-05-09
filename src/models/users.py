@@ -27,7 +27,7 @@ class Users:  # Criação da classe
             return print('Login failed')
 
     @classmethod
-    def is_valid_email(cls, email):  # Método para verificar se o 'Email' realmente é um email
+    def is_valid_email(cls,email):  # Método para verificar se o 'Email' realmente é um email
         for valid_email in cls.emails_valid:
             if email.endswith(valid_email):
                 return True
@@ -39,4 +39,3 @@ class Users:  # Criação da classe
             return True
         else:
             return False
-
