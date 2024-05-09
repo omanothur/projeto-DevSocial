@@ -1,4 +1,4 @@
-class Users:  # Criação da classe
+class Users():  # Criação da classe
     users = {}
     emails_valid = ['@hotmail.com', '@gmail.com', '@yahoo.com']
 
@@ -41,4 +41,3 @@ class Users:  # Criação da classe
             return True
         else:
             return False
-

@@ -1,6 +1,9 @@
-from src.utils.Users import Users
+
 from time import sleep
 import os
+from src.models.chat import Chat
+from src.models.users import Users
+
 
 if __name__ == "__main__":
     def menu():
@@ -24,9 +27,15 @@ if __name__ == "__main__":
                 except UnboundLocalError as e:
                     print(f'{e}\nLoginError: You need to have a registration before logging in')
 
+
             elif resposta == 3:
                 print('Thank tou for the company, come back often!')
                 break
             sleep(4)
     menu()
+
+
+    # chat_user = Chat(email='chat@example.com', password='securepassword')
+    # Users.register(chat_user.email, chat_user.password)
+    # chat_user.send_message("Olá, mundo!")
 
