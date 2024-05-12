@@ -27,7 +27,7 @@ if __name__ == "__main__":
                     print(f'{e}\nLoginError: You need to have a registration before logging in')
 
             elif resposta == 3:
-                print('Thank tou for the company, come back often!')
+                print('Thank you for the company, come back often!')
                 break
             sleep(2.5)
     menu()

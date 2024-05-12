@@ -12,7 +12,12 @@ class Users():  # Criação da classe
 
         if cls.is_valid_email(email_register):
             if cls.is_valid_password(password_register):
-                cls.users[email_register] = {'email': email_register, 'password': password_register}
+                cls.users[email_register] = {
+                    'email': {
+                        'email': email_register,
+                        'password': password_register
+                    }
+                }
                 print('User registered successfully!')
             else:
                 print('This email or password is not valid!\nTry a valid email or a larger password...')
@@ -28,11 +33,15 @@ class Users():  # Criação da classe
             return print('Login failed(email or password is wrong)')
 
     @classmethod
-    def is_valid_email(cls, email):  # Método para verificar se o 'Email' realmente é um email
+    def is_valid_email(cls, email):
         for valid_email in cls.emails_valid:
             if email.endswith(valid_email):
+                if email in cls.users:
+                    print('This email is already being used, try another one.')
+                    return False
+
                 return True
-        print('This email or password is not valid!\nTry a valid email or a larger password...')
+        print('This email or password is not valid!\nTry a valid email or larger password')
         return False
 
     @classmethod
