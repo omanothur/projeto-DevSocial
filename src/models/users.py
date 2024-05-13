@@ -1,23 +1,28 @@
+import re
+
 class Users():  # Criação da classe
     users = {}
-    emails_valid = ['@hotmail.com', '@gmail.com', '@yahoo.com']
 
     def __init__(self, email, password):
         self.email = email
         self.password = password
 
-
     @classmethod
     def register(cls, email_register, password_register):
         if cls.is_valid_email(email_register):
             if cls.is_valid_password(password_register):
-                cls.users[email_register] = {
+                if email_register not in cls.users:
+                    cls.users[email_register] = {
                         'email': email_register,
                         'password': password_register
                     }
-                print('User registered successfully!')
+                    print('User registered successfully!')
+                else:
+                    print('This email is already registered.')
             else:
-                print()
+                print('Invalid password. Please use one longer than 8 characters.')
+        else:
+            print('Invalid email. Please check the email format.')
 
 
     @classmethod
@@ -34,15 +39,9 @@ class Users():  # Criação da classe
 
     @classmethod
     def is_valid_email(cls, email):
-        for valid_email in cls.emails_valid:
-            if email.endswith(valid_email):
-                if email in cls.users:
-                    print('This email is already being used, try another one.')
-                    return False
-
-                return True
-        print('This email is not valid! Check if it matches the email pattern')
-        return False
+        # Use a more robust regex for email validation
+        pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
+        return re.match(pattern, email) is not None
 
     @classmethod
     def is_valid_password(cls, password):
