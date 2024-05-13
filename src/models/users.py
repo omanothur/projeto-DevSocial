@@ -8,29 +8,29 @@ class Users():  # Criação da classe
 
 
     @classmethod
-    def register(cls, email_register, password_register):  # Método para fazer o registro do usuário!
-
+    def register(cls, email_register, password_register):
         if cls.is_valid_email(email_register):
             if cls.is_valid_password(password_register):
                 cls.users[email_register] = {
-                    'email': {
                         'email': email_register,
                         'password': password_register
                     }
-                }
                 print('User registered successfully!')
             else:
-                print('This email or password is not valid!\nTry a valid email or a larger password...')
+                print()
 
 
     @classmethod
-    def login(cls, email, password):  # Método para fazer o login, de acordo se as credenciais estão corretas
+    def login(cls, email, password):
         email_login = input('Email: ')
         password_login = input('Password: ')
-        if email_login in cls.users and cls.users[email_login]['password'] == password_login:
-            return print('Login successful!')
+        if email_login in cls.users:
+            if cls.users[email_login]['password'] == password_login:
+                print('Login successful!')
+            else:
+                print('Login failed(email or password is wrong)')
         else:
-            return print('Login failed(email or password is wrong)')
+            print('This email does not exist...')
 
     @classmethod
     def is_valid_email(cls, email):
@@ -41,7 +41,7 @@ class Users():  # Criação da classe
                     return False
 
                 return True
-        print('This email or password is not valid!\nTry a valid email or larger password')
+        print('This email is not valid! Check if it matches the email pattern')
         return False
 
     @classmethod
@@ -49,4 +49,5 @@ class Users():  # Criação da classe
         if len(password) >= 8:
             return True
         else:
+            print('This password is not valid, try one longer than 8 characters')
             return False

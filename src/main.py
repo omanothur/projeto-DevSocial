@@ -29,6 +29,8 @@ if __name__ == "__main__":
             elif resposta == 3:
                 print('Thank you for the company, come back often!')
                 break
+            else:
+                print('There is no such option, please try a valid one.')
             sleep(2.5)
     menu()
 
