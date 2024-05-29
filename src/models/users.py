@@ -1,6 +1,6 @@
 import re
 
-class Users():  # Criação da classe
+class Users():
     users = {}
 
     def __init__(self, email, password):
@@ -39,7 +39,6 @@ class Users():  # Criação da classe
 
     @classmethod
     def is_valid_email(cls, email):
-        # Use a more robust regex for email validation
         pattern = r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$'
         return re.match(pattern, email) is not None
 

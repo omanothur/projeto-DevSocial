@@ -34,7 +34,4 @@ if __name__ == "__main__":
             sleep(2.5)
     menu()
 
-    # chat_user = Chat(email='chat@example.com', password='securepassword')
-    # Users.register(chat_user.email, chat_user.password)
-    # chat_user.send_message("Olá, mundo!")
 
